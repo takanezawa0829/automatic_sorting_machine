@@ -18,5 +18,14 @@
     * 高根澤
 
     * 佐藤
- 
+# 原因
+* .pyファイルを作成したのにros runで実行出来ないとき
+    * 実行権限がないために発生した
+    [rosrun] Couldn't find executable named test_example.py below /home/takane/catkin_ws/src/crane_x7_ros/      crane_x7_examples  
+    [rosrun] Found the following, but they're either not files,  
+    [rosrun] or not executable:  
+    [rosrun]   /home/takane/catkin_ws/src/crane_x7_ros/crane_x7_examples/scripts/test_example.py  
+    * 対処法
+    
+        
 
