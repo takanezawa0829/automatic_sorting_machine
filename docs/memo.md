@@ -39,5 +39,11 @@
     [rosrun]   /home/takane/catkin_ws/src/crane_x7_ros/crane_x7_examples/scripts/test_example.py  
     * 対処法
 
+# ボールの寸法
+* 縦 65mm  
+* 横 70mm  
+※モデルは直径70mmの球として用意する。  
+
+
         
 
