@@ -1,0 +1,1 @@
+rosrun ./ gripper_action_example.py
