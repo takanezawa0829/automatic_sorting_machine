@@ -1,1 +1,1 @@
-rosrun crane_x7_examples test.py
+rosrun ./ test.py

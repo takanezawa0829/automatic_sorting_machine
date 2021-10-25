@@ -1,1 +1,1 @@
-rosrun crane_x7_examples gripper_action_example.py
+rosrun ./ gripper_action_example.py
