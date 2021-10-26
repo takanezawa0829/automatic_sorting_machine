@@ -1,2 +1,2 @@
-# hand_test
-hand test
+# automatic_sorting_machine
+automatic_sorting_machine
