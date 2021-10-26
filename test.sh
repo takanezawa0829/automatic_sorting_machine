@@ -1,1 +1,1 @@
-rosrun ./ test.py
+rosrun automatic_sorting_machine test.py

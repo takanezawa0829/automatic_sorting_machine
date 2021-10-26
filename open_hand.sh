@@ -1,1 +1,1 @@
-rosrun ./ gripper_action_example.py
+rosrun automatic_sorting_machine pose_groupstate_example.py
