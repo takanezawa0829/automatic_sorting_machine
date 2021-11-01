@@ -47,7 +47,7 @@ def main():
     target_pose = geometry_msgs.msg.Pose()
     target_pose.position.x = 0.15
     target_pose.position.y = 0.14
-    target_pose.position.z = 0.3
+    target_pose.position.z = 0.32
     q = quaternion_from_euler(-3.14, 0.0, -6.28/2.0)
     target_pose.orientation.x = q[0]
     target_pose.orientation.y = q[1]
