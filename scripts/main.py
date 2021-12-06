@@ -31,8 +31,21 @@ def save_frame_camera(device_num, basename, ext='jpg', delay=1, window_name='fra
         cv2.imshow(window_name, frame)
         n += 1
         if n == 100:
-            cv2.imwrite('{}_{}.{}'.format(base_path, 'original', ext), frame)
-            detection_collar(frame, base_path)
+            img_0 = frame[0:540, 0:960]
+            img_1 = frame[0:540, 960:1920]
+            img_2 = frame[540:1080, 0:960]
+            img_3 = frame[540:1080, 960:1920]
+            cv2.imwrite('{}_{}.{}'.format(base_path, 'original', 'jpg'), frame)
+            cv2.imwrite('{}_{}.{}'.format(base_path, 'original_0', 'jpg'), img_0)
+            cv2.imwrite('{}_{}.{}'.format(base_path, 'original_1', 'jpg'), img_1)
+            cv2.imwrite('{}_{}.{}'.format(base_path, 'original_2', 'jpg'), img_2)
+            cv2.imwrite('{}_{}.{}'.format(base_path, 'original_3', 'jpg'), img_3)
+            
+            detection_collar_red(img_0, base_path, 0)
+            detection_collar_red(img_1, base_path, 1)
+            detection_collar_red(img_2, base_path, 2)
+            detection_collar_red(img_3, base_path, 3)
+        
             break
     cv2.destroyWindow(window_name)
     
@@ -40,7 +53,6 @@ def save_frame_camera(device_num, basename, ext='jpg', delay=1, window_name='fra
 def read_image(image, basename):
     img = cv2.imread(os.getcwd() + '/data/temp/' + image)
     base_path = os.path.join('data/temp', basename)
-    print(img)
     img_0 = img[0:540, 0:960]
     img_1 = img[0:540, 960:1920]
     img_2 = img[540:1080, 0:960]
@@ -291,8 +303,8 @@ def main():
     pre_position()
     
     # acquisition_image.pyの内容
-    # save_frame_camera(4, 'camera_capture')
-    read_image('sample_1.jpg', 'camera_capture')
+    save_frame_camera(4, 'camera_capture')
+    # read_image('sample_1.jpg', 'camera_capture')
     
     
     # 判定結果を出力する。
