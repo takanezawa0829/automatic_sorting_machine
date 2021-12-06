@@ -20,14 +20,27 @@ def save_frame_camera(device_num, basename, ext='jpg', delay=1, window_name='fra
     os.makedirs('data/temp', exist_ok=True)
     base_path = os.path.join('data/temp', basename)
 
-    n = 0
     while True:
         ret, frame = cap.read()
         cv2.imshow(window_name, frame)
-        n += 1
-        if n == 100:
-            cv2.imwrite('{}_{}.{}'.format(base_path, 'original', ext), frame)
-            detection_collar(frame, base_path)
+        key = cv2.waitKey(delay) & 0xFF
+        if key == ord('q'):
+
+            img_0 = frame[0:540, 0:960]
+            img_1 = frame[0:540, 960:1920]
+            img_2 = frame[540:1080, 0:960]
+            img_3 = frame[540:1080, 960:1920]
+            cv2.imwrite('{}_{}.{}'.format(base_path, 'original', 'jpg'), frame)
+            cv2.imwrite('{}_{}.{}'.format(base_path, 'original_0', 'jpg'), img_0)
+            cv2.imwrite('{}_{}.{}'.format(base_path, 'original_1', 'jpg'), img_1)
+            cv2.imwrite('{}_{}.{}'.format(base_path, 'original_2', 'jpg'), img_2)
+            cv2.imwrite('{}_{}.{}'.format(base_path, 'original_3', 'jpg'), img_3)
+            
+            detection_collar(img_0, base_path, 0)
+            detection_collar(img_1, base_path, 1)
+            detection_collar(img_2, base_path, 2)
+            detection_collar(img_3, base_path, 3)
+
             break
     cv2.destroyWindow(window_name)
     
@@ -121,8 +134,8 @@ def main():
     print("Current state:")
     print(robot.get_current_state())
     
-    # save_frame_camera(4, 'camera_capture')
-    read_image('sample_1.jpg', 'camera_capture')
+    save_frame_camera(0, 'camera_capture')
+    # read_image('sample_1.jpg', 'camera_capture')
 
     # SRDFに定義されている"home"の姿勢にする
     arm.set_named_target("home")
