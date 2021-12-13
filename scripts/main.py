@@ -33,10 +33,10 @@ def save_frame_camera(device_num, basename, ext='jpg', delay=1, window_name='fra
 
         time.sleep(10)
 
-        img_0 = frame[0:768, 0:1152]
-        img_1 = frame[0:768, 1152:2304]
-        img_2 = frame[768:1536, 0:1152]
-        img_3 = frame[768:1536, 1152:2304]
+        img_0 = frame[0:540, 0:960]
+        img_1 = frame[0:540, 960:1920]
+        img_2 = frame[540:1080, 0:960]
+        img_3 = frame[540:1080, 960:1920]
         cv2.imwrite('{}_{}.{}'.format(base_path, 'original', 'jpg'), frame)
         cv2.imwrite('{}_{}.{}'.format(base_path, 'original_0', 'jpg'), img_0)
         cv2.imwrite('{}_{}.{}'.format(base_path, 'original_1', 'jpg'), img_1)
@@ -306,7 +306,7 @@ def main():
     pre_position()
     
     # acquisition_image.pyの内容
-    save_frame_camera(0, 'camera_capture')
+    save_frame_camera(4, 'camera_capture')
     # read_image('sample_1.jpg', 'camera_capture')
     
     
