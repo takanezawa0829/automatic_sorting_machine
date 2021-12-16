@@ -58,7 +58,7 @@ def main():
     gripper.set_joint_value_target([0.7, 0.7])
     gripper.go()
 
-    # 掴みに行く　各ボールの座標を入れる
+    # 掴みに行く　各ボールの座標を入れる ボール編 右下(0.07,0.14,0.12),右上(0.23,0.14,0.12),左上(0.23,0.26,0.12),左下(0.07,0.26,0.12)
     target_pose = geometry_msgs.msg.Pose()
     target_pose.position.x = 0.23
     target_pose.position.y = 0.26
@@ -75,7 +75,7 @@ def main():
     gripper.set_joint_value_target([0.5, 0.5])
     gripper.go()
 
-    # 持ち上げる
+    # 持ち上げる 各ボールの座標を入れる
     target_pose = geometry_msgs.msg.Pose()
     target_pose.position.x = 0.23
     target_pose.position.y = 0.26
@@ -101,7 +101,7 @@ def main():
     arm.set_pose_target(target_pose)  # 目標ポーズ設定
     arm.go()  # 実行
 
-# 移動する2
+# 移動する2 箱の座標を入れる 上の箱(0.2,-0.19,1.0),下の箱(0.04,-0.2,1.0) z座標は0.3
     target_pose = geometry_msgs.msg.Pose()
     target_pose.position.x = 0.04
     target_pose.position.y = -0.2
@@ -114,7 +114,7 @@ def main():
     arm.set_pose_target(target_pose)  # 目標ポーズ設定
     arm.go()  # 実行
 
-    # 下ろす
+    # 下ろす　箱の座標入れる　z座標は0.2
     target_pose = geometry_msgs.msg.Pose()
     target_pose.position.x = 0.04
     target_pose.position.y = -0.2
@@ -131,7 +131,7 @@ def main():
     gripper.set_joint_value_target([0.9, 0.9])
     gripper.go()
 
-    # 少しだけハンドを持ち上げる
+    # 少しだけハンドを持ち上げる　箱の座標入れる z座標は0.3
     target_pose = geometry_msgs.msg.Pose()
     target_pose.position.x = 0.04
     target_pose.position.y = -0.2
