@@ -200,7 +200,7 @@ def move(ball_num, box_num):
     arm.go()  # 実行
 
     # ハンドを閉じる
-    if ball_num == 1:
+    if box_num == 0:
         gripper.set_joint_value_target([0.3, 0.5])
     else:
         gripper.set_joint_value_target([0.35, 0.5])
