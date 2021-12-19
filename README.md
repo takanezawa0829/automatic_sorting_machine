@@ -70,6 +70,6 @@ rosrun automatic_sorting_machine main.py
 roslaunch crane_x7_gazebo demo.launch fake-execution:=false
 ```
 3. 本パッケージのmain.pyを実行します。
-'''
+```
 rosrun automatic_sorting_machine main.py
-'''
+```
