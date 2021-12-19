@@ -191,7 +191,7 @@ def move(ball_num, box_num):
     target_pose.position.x = ball_position['x']
     target_pose.position.y = ball_position['y']
     target_pose.position.z = ball_position['z']
-    q = quaternion_from_euler(-3.14, 0.0, -3.14/2.0)  # 上方から掴みに行く場合
+    q = quaternion_from_euler(-3.14, 0.0, -1.14/2.0)  # 上方から掴みに行く場合
     target_pose.orientation.x = q[0]
     target_pose.orientation.y = q[1]
     target_pose.orientation.z = q[2]
@@ -200,7 +200,10 @@ def move(ball_num, box_num):
     arm.go()  # 実行
 
     # ハンドを閉じる
-    gripper.set_joint_value_target([0.5, 0.5])
+    if ball_num == 1:
+        gripper.set_joint_value_target([0.3, 0.5])
+    else:
+        gripper.set_joint_value_target([0.35, 0.5])
     gripper.go()
 
     # 持ち上げる 各ボールの座標を入れる
